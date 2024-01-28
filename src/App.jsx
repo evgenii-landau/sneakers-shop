@@ -1,142 +1,38 @@
+import {Header} from "./components/Header /Header.jsx";
+import {Basket} from "./components/Basket/Basket.jsx";
+import {Content} from "./components/Content/Content.jsx";
+import {useEffect, useState} from "react";
+import {SneakersService} from "./services /SneakersService.js";
+
 function App() {
+	const [sneakers, setSneakers] = useState([])
+	const [basketItems, setBasketItems] = useState([])
+	const [basketOpened, setBasketOpened] = useState(false)
 
-	return <div className='wrapper'>
-		<header>
-			<div className='headerLeft'>
-				<img width={40} height={40} src='/img/logo.png' alt="logo"/>
-				<div className='headerInfo'>
-					<h3>Sneakers Shop</h3>
-					<p>Магазин лучших кросовок</p>
-				</div>
-			</div>
-			<div className='headerRight'>
-				<ul>
-					<li>
-						<img width={18} height={18} src='/img/cart.svg' alt="cart"/>
-						<span>1205 руб.</span>
-					</li>
-					<li>
-						<img width={18} height={18} src='/img/like.svg' alt="cart"/>
-						<span>Закладки</span>
-					</li>
-					<li>
-						<img width={18} height={18} src='/img/user.svg' alt="user"/>
-					</li>
-				</ul>
-			</div>
-		</header>
-		<section className='content'>
-			<h1>Все кроссовки</h1>
-			<div></div>
+	function addToBasket(obj) {
+		basketItems.includes(obj) || setBasketItems(prev => [...prev, obj])
+	}
 
-			<div className='sneakers'>
-				<div className='card'>
-					<img src="/img/sneakers-1.jpg" alt="sneakers"/>
-					<p>Мужские Кроссовки Nike Blazer Mid Suede</p>
-					<div>
-						<div>
-							<span>цена:</span>
-							<b>12 999 руб.</b>
-						</div>
-						<button>
-							<img src="/img/btn-add.png" alt="btn-add"/>
-						</button>
-					</div>
-				</div>
-				<div className='card'>
-					<img src="/img/sneakers-1.jpg" alt="sneakers"/>
-					<p>Мужские Кроссовки Nike Blazer Mid Suede</p>
-					<div>
-						<div>
-							<span>цена:</span>
-							<b>12 999 руб.</b>
-						</div>
-						<button>
-							<img src="/img/btn-add.png" alt="btn-add"/>
-						</button>
-					</div>
-				</div>
-				<div className='card'>
-					<img src="/img/sneakers-1.jpg" alt="sneakers"/>
-					<p>Мужские Кроссовки Nike Blazer Mid Suede</p>
-					<div>
-						<div>
-							<span>цена:</span>
-							<b>12 999 руб.</b>
-						</div>
-						<button>
-							<img src="/img/btn-add.png" alt="btn-add"/>
-						</button>
-					</div>
-				</div>
-				<div className='card'>
-					<img src="/img/sneakers-1.jpg" alt="sneakers"/>
-					<p>Мужские Кроссовки Nike Blazer Mid Suede</p>
-					<div>
-						<div>
-							<span>цена:</span>
-							<b>12 999 руб.</b>
-						</div>
-						<button>
-							<img src="/img/btn-add.png" alt="btn-add"/>
-						</button>
-					</div>
-				</div>
-				<div className='card'>
-					<img src="/img/sneakers-1.jpg" alt="sneakers"/>
-					<p>Мужские Кроссовки Nike Blazer Mid Suede</p>
-					<div>
-						<div>
-							<span>цена:</span>
-							<b>12 999 руб.</b>
-						</div>
-						<button>
-							<img src="/img/btn-add.png" alt="btn-add"/>
-						</button>
-					</div>
-				</div>
-				<div className='card'>
-					<img src="/img/sneakers-1.jpg" alt="sneakers"/>
-					<p>Мужские Кроссовки Nike Blazer Mid Suede</p>
-					<div>
-						<div>
-							<span>цена:</span>
-							<b>12 999 руб.</b>
-						</div>
-						<button>
-							<img src="/img/btn-add.png" alt="btn-add"/>
-						</button>
-					</div>
-				</div>
-				<div className='card'>
-					<img src="/img/sneakers-1.jpg" alt="sneakers"/>
-					<p>Мужские Кроссовки Nike Blazer Mid Suede</p>
-					<div>
-						<div>
-							<span>цена:</span>
-							<b>12 999 руб.</b>
-						</div>
-						<button>
-							<img src="/img/btn-add.png" alt="btn-add"/>
-						</button>
-					</div>
-				</div>
-				<div className='card'>
-					<img src="/img/sneakers-1.jpg" alt="sneakers"/>
-					<p>Мужские Кроссовки Nike Blazer Mid Suede</p>
-					<div>
-						<div>
-							<span>цена:</span>
-							<b>12 999 руб.</b>
-						</div>
-						<button>
-							<img src="/img/btn-add.png" alt="btn-add"/>
-						</button>
-					</div>
-				</div>
-			</div>
-		</section>
-	</div>
+	function delFromBasket(id) {
+		setBasketItems(prev => prev.filter(item => item.id !== id))
+	}
+
+	useEffect(() => {
+		async function fetchData() {
+			const data = await SneakersService.getAllUsers()
+			setSneakers(data)
+		}
+
+		fetchData()
+	}, [])
+
+	return (
+		<div className='wrapper'>
+			{basketOpened ? <Basket items={basketItems} onClose={() => setBasketOpened(false)} delFromBasket={(id) => delFromBasket(id)}/> : null}
+			<Header onOpen={() => setBasketOpened(true)}/>
+			<Content data={sneakers} addToBasket={(obj) => addToBasket(obj)} delFromBasket={(id) => delFromBasket(id)}/>
+		</div>
+	)
 }
 
 export default App

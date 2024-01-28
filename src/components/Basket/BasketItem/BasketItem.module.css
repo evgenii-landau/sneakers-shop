@@ -1,0 +1,26 @@
+.basketItem {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  border-radius: 20px;
+  border: 1px solid #F3F3F3;
+  background: #FFF;
+}
+.basketItem div {
+  margin-right: 20px;
+}
+.basketItem .basketImg {
+  margin-right: 20px;
+}
+.basketItem p {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+.basketItem b {
+  font-size: 14px;
+}
+.basketItem .removeBtn {
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=BasketItem.module.css.map */

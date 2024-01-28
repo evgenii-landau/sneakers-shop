@@ -1,0 +1,29 @@
+header {
+  padding: 44px 0;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #EAEAEA;
+
+  .headerLeft {
+    display: flex;
+    gap: 16px;
+  }
+
+  .headerRight {
+    display: flex;
+
+    .cart {
+      cursor: pointer;
+    }
+    
+    ul {
+      display: flex;
+      gap: 32px;
+      list-style-type: none;
+
+      img {
+        margin-right: 10px;
+      }
+    }
+  }
+}

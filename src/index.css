@@ -1,66 +1,87 @@
+* {
+  font-family: Inter, system-ui;
+}
+
+.wrapper {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   margin: 0;
   box-sizing: border-box;
   font-family: system-ui;
   background-color: #FFFFFF;
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
   background: #E7F6FF;
-}
-
-.wrapper {
-  max-width: 1080px;
-  margin: 0 auto;
-  padding: 0 60px;
-  background: #FFFFFF;
-  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.04);
-  border-radius: 20px;
-}
-
-header {
-  padding: 44px 0;
-  display: flex;
-  justify-content: space-between;
-  border-bottom: 1px solid #EAEAEA;
-}
-
-h1 {
-  color: #000;
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  text-transform: uppercase;
-}
-
-ul {
-  display: flex;
-  gap: 32px;
-  list-style-type: none;
-}
-
-img {
-  margin-right: 10px;
-}
-
-.headerLeft {
-  display: flex;
-  gap: 16px;
-}
-
-.headerRight {
-  display: flex;
-}
-
-h3 {
-  margin: 0;
 }
 
 p {
   margin: 0;
 }
 
-li {
+h1 {
+  margin: 0;
+  color: #000;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+h2 {
+  margin-bottom: 30px;
+  color: #000;
+  font-size: 24px;
+  font-weight: 700;
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  img {
+    cursor: pointer;
+  }
+}
+
+h3 {
+  margin: 0;
+}
+
+.wrapper {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 60px;
+
+  background: #FFFFFF;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.04);
+  border-radius: 20px;
+}
+
+.content {
+
+}
+
+.contentTop {
+  padding: 40px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  div {
+    width: 250px;
+    border-radius: 10px;
+    border: 1px solid #F3F3F3;
+    padding: 0 15px;
+  }
+
+  input {
+    padding: 13px;
+    border: none;
+
+  }
+
+  input::placeholder {
+    color: #C4C4C4;
+    font-size: 14px;
+  }
 }
 
 .sneakers {
@@ -70,60 +91,8 @@ li {
   flex-wrap: wrap;
 }
 
-.card {
-  max-width: 150px;
-  padding: 20px 40px;
-  border-radius: 40px;
-  border: 1px solid #F3F3F3;
-  background: #FFF;
-}
-.card img {
-  max-width: 133px;
-  margin-bottom: 14px;
-}
-.card p {
-  max-width: 150px;
-  color: #000;
-  font-size: 14px;
-  margin-bottom: 14px;
-}
-.card div {
-  display: flex;
-  justify-content: space-between;
-}
-.card div div {
-  display: flex;
-  flex-direction: column;
-}
-.card span {
-  color: #BDBDBD;
-  font-size: 11px;
-  font-weight: 500;
-  text-transform: uppercase;
-}
-.card b {
-  color: #000;
-  font-size: 14px;
-  font-weight: 700;
-}
-.card button {
-  display: inline-block;
-  height: 32px;
-}
-.card button img {
-  margin: 0;
-}
-.card button:hover {
-  opacity: 0.8;
-}
 
-button {
-  padding: 0;
-  border: none;
-  font: inherit;
-  color: inherit;
-  background-color: transparent;
-  cursor: pointer;
-}
 
-/*# sourceMappingURL=index.css.map */
+
+
+

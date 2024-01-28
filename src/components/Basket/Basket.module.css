@@ -1,0 +1,79 @@
+.overlay {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+.overlay button {
+  width: 100%;
+  height: 55px;
+  background: #9dd558;
+  border-radius: 18px;
+  border: 0;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s ease-in-out;
+}
+.overlay button:hover {
+  background: #addc9b;
+}
+.overlay button:active {
+  background: #8dce75;
+}
+
+.basket {
+  width: 385px;
+  height: 100%;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  right: 0;
+  background: #FFFFFF;
+  box-shadow: -10px 4px 24px rgba(0, 0, 0, 0.1);
+}
+
+.removeBtn {
+  opacity: 0.5;
+  transition: opacity 0.2s ease-in-out;
+  cursor: pointer;
+}
+.removeBtn:hover {
+  opacity: 1;
+}
+
+.basketList {
+  margin: 0;
+  flex: 0.94;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 0;
+  overflow: auto;
+  margin-bottom: 40px;
+}
+
+.basketTotalBlock {
+  padding: 0;
+  margin: 0;
+}
+.basketTotalBlock .totalPrice {
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 20px;
+}
+.basketTotalBlock .totalPrice div {
+  flex: 1;
+  height: 1px;
+  border: 1px dashed #DFDFDF;
+  position: relative;
+  top: -4px;
+  margin: 0 7px;
+}
+
+/*# sourceMappingURL=Basket.module.css.map */

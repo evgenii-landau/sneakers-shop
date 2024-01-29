@@ -12,14 +12,19 @@ header {
   .headerRight {
     display: flex;
 
-    .cart {
-      cursor: pointer;
-    }
-    
     ul {
       display: flex;
       gap: 32px;
       list-style-type: none;
+
+      .cart {
+        cursor: pointer;
+      }
+
+      .favoriteLink {
+        text-decoration: none;
+        color: #000000;
+      }
 
       img {
         margin-right: 10px;

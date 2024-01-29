@@ -3,9 +3,14 @@
 }
 
 .wrapper {
-  height: 100%;
-  margin: 0;
-  padding: 0;
+  max-width: 1080px;
+  height: 100vh;
+  margin: 0 auto;
+  padding: 0 60px;
+
+  background: #FFFFFF;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.04);
+  border-radius: 20px;
 }
 
 body {
@@ -45,51 +50,6 @@ h3 {
   margin: 0;
 }
 
-.wrapper {
-  max-width: 1080px;
-  margin: 0 auto;
-  padding: 0 60px;
-
-  background: #FFFFFF;
-  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.04);
-  border-radius: 20px;
-}
-
-.content {
-
-}
-
-.contentTop {
-  padding: 40px 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  div {
-    width: 250px;
-    border-radius: 10px;
-    border: 1px solid #F3F3F3;
-    padding: 0 15px;
-  }
-
-  input {
-    padding: 13px;
-    border: none;
-
-  }
-
-  input::placeholder {
-    color: #C4C4C4;
-    font-size: 14px;
-  }
-}
-
-.sneakers {
-  display: flex;
-  column-gap: 50px;
-  row-gap: 40px;
-  flex-wrap: wrap;
-}
 
 
 

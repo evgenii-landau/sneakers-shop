@@ -1,0 +1,37 @@
+.content .contentTop {
+  padding: 40px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.content .contentTop div {
+  display: flex;
+  align-items: center;
+  width: 220px;
+  padding: 0 15px;
+  border-radius: 10px;
+  border: 1px solid #F3F3F3;
+}
+.content .contentTop input {
+  padding: 13px;
+  border: none;
+  outline: none;
+}
+.content .contentTop input::placeholder {
+  color: #C4C4C4;
+  font-size: 14px;
+}
+.content .contentTop .clear {
+  cursor: pointer;
+}
+.content .contentTop .clear:hover {
+  opacity: 0.8;
+}
+.content .sneakers {
+  display: flex;
+  column-gap: 50px;
+  row-gap: 40px;
+  flex-wrap: wrap;
+}
+
+/*# sourceMappingURL=Home.module.css.map */

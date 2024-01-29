@@ -1,9 +1,10 @@
 import classes from './Card.module.scss';
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
-export const Card = ({data, addToBasket, delFromBasket}) => {
+export const Card = ({data, addToBasket, delFromBasket, addToFavorite, favorited=false}) => {
 	const [isAdded, setIsAdd] = useState(false)
-	const [isFavorite, setFavorite] = useState(false)
+	const [isFavorite, setFavorite] = useState(favorited)
+
 
 	function addInBasket(prev) {
 		setIsAdd(prev => !prev)
@@ -12,6 +13,7 @@ export const Card = ({data, addToBasket, delFromBasket}) => {
 
 	function addInFavorite(prev) {
 		setFavorite(prev => !prev)
+		addToFavorite(data)
 	}
 
 	return (
@@ -26,7 +28,7 @@ export const Card = ({data, addToBasket, delFromBasket}) => {
 					<span>цена:</span>
 					<b>{data.price.toLocaleString()} руб.</b>
 				</div>
-				<button onClick={() => addInBasket(isAdded)}>
+				<button onClick={() => addInBasket()}>
 					<img src={isAdded ? "/img/btn-added.png" : "/img/btn-add.png"} alt="btn-add"/>
 				</button>
 			</div>

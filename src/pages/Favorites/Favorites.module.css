@@ -1,0 +1,56 @@
+section .favorites {
+  padding: 40px 0;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+section .favorites .btnBack {
+  cursor: pointer;
+}
+section .favorites .btnBack:hover {
+  opacity: 0.7;
+}
+section .content {
+  display: flex;
+  column-gap: 50px;
+  row-gap: 40px;
+  flex-wrap: wrap;
+}
+section .noFavorites {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 290px;
+  padding-top: 250px;
+  margin: 0 auto;
+  height: 100vh;
+}
+section .noFavorites .smile {
+  width: 70px;
+  margin-bottom: 30px;
+}
+section .noFavorites h2 {
+  margin-bottom: 10px;
+}
+section .noFavorites p {
+  margin-bottom: 40px;
+}
+section .noFavorites button {
+  width: 225px;
+  padding: 18px 20px;
+  color: #FFF;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 18px;
+  background: #9DD458;
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s ease-in-out;
+}
+section .noFavorites button:hover {
+  opacity: 0.8;
+  transform: translateY(-4px);
+}
+
+/*# sourceMappingURL=Favorites.module.css.map */

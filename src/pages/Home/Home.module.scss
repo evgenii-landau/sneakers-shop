@@ -1,0 +1,41 @@
+.content {
+  .contentTop {
+    padding: 40px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    div {
+      display: flex;
+      align-items: center;
+      width: 220px;
+      padding: 0 15px;
+
+      border-radius: 10px;
+      border: 1px solid #F3F3F3;
+    }
+
+    input {
+      padding: 13px;
+      border: none;
+      outline: none;
+    }
+
+    input::placeholder {
+      color: #C4C4C4;
+      font-size: 14px;
+    }
+    .clear {
+      cursor: pointer;
+    }
+    .clear:hover {
+      opacity: 0.8;
+    }
+  }
+  .sneakers {
+    display: flex;
+    column-gap: 50px;
+    row-gap: 40px;
+    flex-wrap: wrap;
+  }
+}

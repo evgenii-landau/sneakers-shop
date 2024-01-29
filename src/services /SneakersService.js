@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const SneakersService = {
-	async getAllUsers() {
+	async getAllSneakers() {
 		const response = await axios({
 			url: 'https://604781a0efa572c1.mokky.dev/items'
 		})

@@ -1,5 +1,6 @@
 import classes from './Basket.module.scss'
 import {BasketItem} from "./BasketItem/BasketItem.jsx";
+import {useState} from "react";
 
 export const Basket = ({items, onClose, delFromBasket}) => {
 	return (
@@ -9,7 +10,7 @@ export const Basket = ({items, onClose, delFromBasket}) => {
 				</h2>
 				<ul className={classes.basketList}>
 					{items.map(el => (
-						<BasketItem key={el.id} data={el} delFromBasket={(id) => delFromBasket(id)}/>
+						<BasketItem key={el.id} data={el} delFromBasket={delFromBasket}/>
 					))}
 				</ul>
 				<div>

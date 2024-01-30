@@ -1,8 +1,12 @@
 import classes from './Favorites.module.scss';
 import {Link} from "react-router-dom";
 import {Card} from '../../components/Content/Card/Card.jsx';
+import {useContext} from "react";
+import {AppContext} from "../../App.jsx";
 
-export const Favorites = ({favoriteItems, delFromFavorites, addToFavorite, favorited}) => {
+export const Favorites = () => {
+	const {favoriteItems} = useContext(AppContext)
+
 	return (
 		<section>
 			{favoriteItems.length ?
@@ -15,7 +19,7 @@ export const Favorites = ({favoriteItems, delFromFavorites, addToFavorite, favor
 					</div>
 					<div className={classes.content}>
 						{favoriteItems.map(item => (
-							<Card key={item.id} data={item} addToFavorite={addToFavorite} favorited={favorited}/>
+							<Card key={item.id} data={item} favorited={true}/>
 						))}
 					</div>
 				</> :
@@ -24,7 +28,9 @@ export const Favorites = ({favoriteItems, delFromFavorites, addToFavorite, favor
 						<img className={classes.smile} src="/img/sad-smile-1.png" alt="sad smile"/>
 						<h2>У вас нет закладок</h2>
 						<p>Вы ничего не добавляли в закладки</p>
-						<Link to='/'><button>Вернуться назад</button></Link>
+						<Link to='/'>
+							<button>Вернуться назад</button>
+						</Link>
 					</div>
 				</>
 			}

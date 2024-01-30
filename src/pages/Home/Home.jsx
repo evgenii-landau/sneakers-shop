@@ -2,7 +2,7 @@ import {useState} from "react";
 import classes from './Home.module.scss';
 import {Card} from "../../components/Content/Card/Card.jsx";
 
-export const Home = ({data, addToBasket, delFromBasket, addToFavorite}) => {
+export const Home = ({data, addToBasket, delFromBasket, addToFavorite, basketItems, favoriteItems}) => {
 	const [searchValue, setSearchValue] = useState('')
 
 	function changeSearchValue(event) {
@@ -26,8 +26,12 @@ export const Home = ({data, addToBasket, delFromBasket, addToFavorite}) => {
 			</div>
 			<div className={classes.sneakers}>
 				{data.filter(item => item.title.toLowerCase().includes(searchValue.toLowerCase())).map(item => (
-					<Card key={item.id} data={item} addToBasket={(obj) => addToBasket(obj)}
-						  delFromBasket={delFromBasket} addToFavorite={addToFavorite}/>
+					<Card key={item.id}
+						  data={item}
+						  addToBasket={(obj) => addToBasket(obj)}
+						  delFromBasket={delFromBasket}
+						  addToFavorite={addToFavorite}
+						  favorited={favoriteItems.some(obj => obj.title === item.title)}/>
 				))}
 			</div>
 

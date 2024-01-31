@@ -6,6 +6,7 @@ import axios from "axios";
 import {Route, Routes} from "react-router-dom";
 import {Favorites} from "./pages/Favorites/Favorites.jsx";
 import {AllResponses} from "./services /AllResponses.js";
+import {Orders} from "./pages/Orders/Orders.jsx";
 
 export const AppContext = createContext({})
 
@@ -15,8 +16,16 @@ function App() {
 	const [favoriteItems, setFavoriteItems] = useState([])
 	const [basketOpened, setBasketOpened] = useState(false)
 	const [loading, setLoading] = useState(false)
+	const [totalSum, setTotalSum] = useState(0)
 
 	const isItemAdded = (id) => basketItems.some(item => Number(item.id) === Number(id))
+
+	useEffect(() => {
+		(() => {
+			const total = basketItems.reduce((sum, current) => sum + current.price, 0)
+			setTotalSum(total)
+		})()
+	}, [basketItems]);
 
 
 	const addToFavorite = async (obj) => {
@@ -48,14 +57,12 @@ function App() {
 	const addToBasket = async (obj) => {
 		try {
 			if (basketItems.find(item => Number(item.id) === Number(obj.id))) {
-				console.log(obj)
 				axios({
 					method: 'delete',
 					url: `https://65b6e4e7da3a3c16ab013d9a.mockapi.io/cart/${obj.id}`,
 				})
 				setBasketItems(prev => prev.filter(item => Number(item.id) !== Number(obj.id)))
 			} else {
-				console.log(obj)
 				axios({
 					method: 'post',
 					url: 'https://65b6e4e7da3a3c16ab013d9a.mockapi.io/cart',
@@ -90,7 +97,7 @@ function App() {
 	}, [])
 
 	return (
-		<AppContext.Provider value={{favoriteItems, addToFavorite, loading, isItemAdded}}>
+		<AppContext.Provider value={{favoriteItems, addToFavorite, loading, isItemAdded, totalSum}}>
 			<div className='wrapper'>
 				<Header onOpen={() => setBasketOpened(true)}/>
 
@@ -105,6 +112,9 @@ function App() {
 					</Route>
 					<Route path='/favorites' element={<Favorites
 						delFromFavorites={(id) => delFromFavorites(id)}/>}>
+					</Route>
+					<Route path='/orders' element={<Orders/>}>
+
 					</Route>
 				</Routes>
 

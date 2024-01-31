@@ -1,8 +1,11 @@
 import classes from './Header.module.scss';
 import {Link} from "react-router-dom";
-import {useState} from "react";
+import {useContext, useState} from "react";
+import {AppContext} from "../../App.jsx";
 
 export const Header = (props) => {
+	const {totalSum} = useContext(AppContext)
+
 	return (
 		<header>
 			<div className={classes.headerLeft}>
@@ -19,14 +22,16 @@ export const Header = (props) => {
 					<li>
 						<img className={classes.cart} onClick={props.onOpen} width={18} height={18} src='/img/cart.svg'
 							 alt="cart"/>
-						<span>1205 руб.</span>
+						<b>{totalSum.toLocaleString()} руб.</b>
 					</li>
 					<li>
 						<img width={18} height={18} src='/img/like.svg' alt="cart"/>
 						<Link className={classes.favoriteLink} to='/favorites'>Закладки</Link>
 					</li>
 					<li>
-						<img width={18} height={18} src='/img/user.svg' alt="user"/>
+						<Link to='/orders'>
+							<img width={18} height={18} src='/img/user.svg' alt="user"/>
+						</Link>
 					</li>
 				</ul>
 			</div>

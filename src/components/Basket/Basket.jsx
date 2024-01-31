@@ -1,9 +1,11 @@
 import classes from './Basket.module.scss'
 import {BasketItem} from "./BasketItem/BasketItem.jsx";
-import {useState} from "react";
+import {useContext, useState} from "react";
 import {Link} from "react-router-dom";
+import {AppContext} from "../../App.jsx";
 
 export const Basket = ({basketItems, onClose, delFromBasket}) => {
+	const {totalSum} = useContext(AppContext)
 	return (
 		<div className={classes.overlay}>
 			<div className={classes.basket}>
@@ -34,12 +36,12 @@ export const Basket = ({basketItems, onClose, delFromBasket}) => {
 						<li className={classes.totalPrice}>
 							<span>Итого: </span>
 							<div></div>
-							<b>{basketItems.length ? basketItems.reduce((summ, current) => summ + current.price, 0).toFixed(2) : '0'} руб.</b>
+							<b>{totalSum.toFixed(2)} руб.</b>
 						</li>
 						<li className={classes.totalPrice}>
 							<span>Налог 5%: </span>
 							<div></div>
-							<b>{basketItems.length ? basketItems.reduce((summ, current) => summ + current.price, 0) * 0.05 : 0} руб. </b>
+							<b>{(totalSum * 0.05).toFixed(2)} руб.</b>
 						</li>
 					</ul>
 					<button>Оформить заказ</button>

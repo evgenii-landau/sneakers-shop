@@ -120,7 +120,7 @@ function App() {
 
 				{basketOpened && <Basket basketItems={basketItems}
 										 onClose={() => setBasketOpened(false)}
-										 delFromBasket={(id) => delFromBasket(id)}/>}
+										 delFromBasket={delFromBasket}/>}
 			</div>
 		</AppContext.Provider>
 	)

@@ -1,8 +1,8 @@
-// import classes from './Favorites.module.scss';
+// import classes from './Orders.module.scss';
 // import {Link} from "react-router-dom";
 // import {Card} from "../Content/Card/Card.jsx";
 //
-// export const Favorites = ({favoriteItems, delFromFavorites}) => {
+// export const Orders = ({favoriteItems, delFromFavorites}) => {
 // 	return (
 // 		<section>
 // 			{favoriteItems.length ?
